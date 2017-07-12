@@ -1,0 +1,46 @@
+.Dd $Mdocdate$
+.Dt HEY 1
+.Os hey-VERSION
+.Sh NAME
+.Nm hey
+.Nd set urgency hint on containing window
+.Sh SYNOPSIS
+.Nm hey
+.Op Fl v
+.Sh DESCRIPTION
+.Nm
+is a simple tool to set the urgent flag on the containing window.
+The window manager should provide some visual indication that the
+window requires attention.
+.Pp
+.Nm
+is useful for providing an alert when a long running command has
+finished.
+.Sh OPTIONS
+.Bl -tag -width Ds
+.It Fl v
+Print version information to standard output and exit
+.El
+.Sh ENVIRONMENT
+.Ev WINDOWID
+is used to determine which window to set the urgency hint on.
+Most terminal emulators (XTerm, urxvt, konsole, etc.) set this
+automatically.
+If it is not set,
+.Nm
+will fail.
+.Sh EXAMPLES
+.Nm
+can be used to provide an alert when a long-running command
+finishes:
+.Bd -literal -offset indent
+.Dl make; hey
+.Ed
+.Pp
+Once make finishes,
+.Nm
+will set the urgent hint, and the window manager will alert the
+user.
+.Sh BUGS
+Please report bugs at:
+.Lk https://github.com/jonnepaa/hey
